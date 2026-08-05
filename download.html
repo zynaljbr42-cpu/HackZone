@@ -75,12 +75,11 @@
 
     <main class="container">
         <div class="download-box">
-            <h2 id="gameTitle" style="color: #64b5ef; margin-bottom: 10px;">جاري تجهيز الملف...</h2>
-            <p style="color: #7f91a4;">الرجاء الانتظار قليلاً حتى يتم تجهيز رابط التحميل المباشر (APK)</p>
+            <h2 id="gameTitle" style="color: #64b5ef; margin-bottom: 10px;">جاري تجهيز الرابط...</h2>
+            <p style="color: #7f91a4;">الرجاء الانتظار حتى يتم فتح رابط التحميل عبر MediaFire</p>
             
             <div id="timer" class="timer-circle">10</div>
 
-            <!-- ضع روابط ملفات الـ APK المباشرة في الخريطة بالأسفل (JavaScript) -->
             <a id="downloadBtn" href="#" class="btn-final btn-disabled" target="_blank">جاري التجهيز...</a>
         </div>
     </main>
@@ -108,21 +107,19 @@
         </div>
     </footer>
 
-    <!-- سكربت العداد التنازلي وتحديد روابط التحميل -->
     <script>
-        // خريطة روابط الألعاب (استبدل الروابط المؤقتة بروابط الـ APK المباشرة الخاصة بك)
+        // ضع روابط صفحات ملفاتك على MediaFire هنا بدلاً من الروابط التجريبية
         const gameLinks = {
             'cursed_isle': {
                 name: 'The Cursed Dinosaur Isle H Mod',
-                url: 'https://example.com/files/cursed_isle.apk' // ضع رابط ملف APK هنا
+                url: 'https://www.mediafire.com/file/YOUR_FILE_CODE_1/The_Cursed_Isle.apk/file' 
             },
             'pangea_primal': {
                 name: 'Pangea Primal Age Mod',
-                url: 'https://example.com/files/pangea_primal.apk' // ضع رابط ملف APK هنا
+                url: 'https://www.mediafire.com/file/YOUR_FILE_CODE_2/Pangea_Primal.apk/file' 
             }
         };
 
-        // قراءة اسم اللعبة من الرابط
         const urlParams = new URLSearchParams(window.location.search);
         const gameKey = urlParams.get('game');
         
@@ -135,7 +132,6 @@
         gameTitleElem.textContent = targetGame.name;
         downloadBtn.href = targetGame.url;
 
-        // تشغيل العداد التنازلي
         let timeLeft = 10;
         const countdown = setInterval(() => {
             timeLeft--;
@@ -145,7 +141,7 @@
                 clearInterval(countdown);
                 timerElem.style.display = 'none';
                 downloadBtn.classList.remove('btn-disabled');
-                downloadBtn.textContent = '🚀 تحميل الملف الآن (APK)';
+                downloadBtn.textContent = '🚀 الانتقال للتحميل من MediaFire';
             }
         }, 1000);
     </script>
